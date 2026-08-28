@@ -1,3 +1,19 @@
+AI-Augmented Test Automation Platform (Personal Project)
+
+- Architected an end-to-end test automation pipeline using Playwright (Java) + TestNG, containerized with Docker/Docker Compose, and orchestrated by a self-hosted Jenkins CI/CD pipeline with automatic SCM-triggered builds (poll + webhook), eliminating manual test execution.
+- Designed a 5-stage declarative Jenkins pipeline (Docker environment validation, containerized test execution, AI evaluation suites, AI failure triage, unified reporting) with credential-scoped secrets management via Jenkins Credentials store — zero secrets committed to source control.
+- Built a structured LLM-output reliability layer around Claude API calls (via an OpenAI-compatible gateway): defensive JSON extraction/parsing, retry-on-malformed-output logic, and Jackson version-conflict resolution across a multi-module Maven build.
+- Engineered an AI-powered resume-to-job-description matching service (Claude Sonnet) with a 5-category automated evaluation suite covering schema validation, golden-set accuracy regression, groundedness/hallucination detection (keyword-overlap grounding checks), prompt-injection adversarial testing, and demographic bias/fairness testing — directly addressing known production risks in AI-driven hiring tools.
+- Built an AI CI-failure triage bot (Claude Haiku) that parses Surefire/JUnit XML reports and auto-classifies failures (flaky / regression / environment) with root-cause summaries, reducing manual failure-triage overhead.
+- Implemented unified Allure test reporting aggregated across 3 independent Maven modules into a single dashboard, integrated into Jenkins with screenshot/trace capture on failure for debuggability.
+- Debugged and resolved production-grade integration issues independently: Docker bind-mount/mvn clean conflicts, transitive dependency (Jackson) version mismatches, Jenkins process environment (PATH) isolation, and LLM output non-determinism (malformed JSON, prompt-injection resistance, golden-set calibration).
+
+Tech Stack: Java 17 · Maven · Playwright · TestNG · Docker · Docker Compose · Jenkins (Pipeline-as-Code) · Allure · Claude API (Anthropic, via OpenAI-compatible gateway) · Jackson · Git/GitHub · Colima
+
+AI/LLM Testing Techniques Applied: golden-set regression testing, LLM-output groundedness/hallucination checks, adversarial prompt-injection testing, bias & fairness testing, structured-output schema validation, retry-based reliability patterns for non-deterministic outputs
+
+
+
 # playwright-java-jenkins
 
 End-to-end test automation pipeline: Playwright (Java) + TestNG, containerized with Docker,
