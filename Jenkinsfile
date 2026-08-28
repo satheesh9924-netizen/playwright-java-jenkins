@@ -59,7 +59,11 @@ pipeline {
             sh 'docker compose down --volumes --remove-orphans || true'
             junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
             archiveArtifacts artifacts: 'target/screenshots/*.png, target/traces/*.zip, target/surefire-reports/**, resume-matcher/target/surefire-reports/**, ai-triage/target/surefire-reports/**, ai-triage/target/triage-report.md', allowEmptyArchive: true
-            step([$class: 'AllureReportPublisher', includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]])
+            step([$class: 'AllureReportPublisher', includeProperties: false, jdk: '', results: [
+                [path: 'target/allure-results'],
+                [path: 'resume-matcher/target/allure-results'],
+                [path: 'ai-triage/target/allure-results']
+            ]])
         }
     }
 }

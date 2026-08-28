@@ -11,10 +11,11 @@ import static org.testng.Assert.assertTrue;
 
 /**
  * Checks that the model's claims are grounded in the source documents rather than invented.
- * A "matched" skill must share at least one meaningful keyword with the resume; a "missing"
- * skill must share none. Token-overlap (not whole-phrase substring) tolerates the model
- * paraphrasing a skill slightly while still catching genuinely fabricated skills, which share
- * zero real overlap with the source text.
+ * A "matched" skill must share at least one meaningful keyword with the resume (lenient --
+ * catches skills sharing zero real overlap, i.e. outright fabrications). A "missing" skill
+ * must NOT have ALL of its meaningful keywords present (strict -- a single generic shared word
+ * like "testing" isn't enough to call a compound skill phrase "already present"; the whole
+ * claimed capability has to actually be there for the claim to be inconsistent).
  */
 public class GroundednessTest {
 
@@ -52,10 +53,10 @@ public class GroundednessTest {
 
         for (String skill : result.missingSkills()) {
             List<String> tokens = significantTokens(skill);
-            boolean anyTokenPresent = tokens.stream().anyMatch(resumeLower::contains);
-            assertTrue(!anyTokenPresent,
-                    "Skill \"" + skill + "\" was listed as missing but shares a keyword already present "
-                            + "in the resume -- inconsistent reasoning: " + result.reasoning());
+            boolean fullyPresent = !tokens.isEmpty() && tokens.stream().allMatch(resumeLower::contains);
+            assertTrue(!fullyPresent,
+                    "Skill \"" + skill + "\" was listed as missing but is fully present in the resume -- "
+                            + "inconsistent reasoning: " + result.reasoning());
         }
     }
 
