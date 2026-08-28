@@ -1,8 +1,12 @@
 package com.example.base;
 
 import com.microsoft.playwright.*;
+import io.qameta.allure.Allure;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class BaseTest {
@@ -26,11 +30,17 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void tearDownMethod(ITestResult result) {
+    public void tearDownMethod(ITestResult result) throws IOException {
         if (result.getStatus() == ITestResult.FAILURE) {
             String testName = result.getMethod().getMethodName();
-            page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/screenshots/" + testName + ".png")));
-            context.tracing().stop(new Tracing.StopOptions().setPath(Paths.get("target/traces/" + testName + "-trace.zip")));
+
+            Path screenshotPath = Paths.get("target/screenshots/" + testName + ".png");
+            page.screenshot(new Page.ScreenshotOptions().setPath(screenshotPath));
+            Allure.addAttachment(testName + " - screenshot", "image/png", Files.newInputStream(screenshotPath), "png");
+
+            Path tracePath = Paths.get("target/traces/" + testName + "-trace.zip");
+            context.tracing().stop(new Tracing.StopOptions().setPath(tracePath));
+            Allure.addAttachment(testName + " - trace", "application/zip", Files.newInputStream(tracePath), "zip");
         } else {
             context.tracing().stop();
         }

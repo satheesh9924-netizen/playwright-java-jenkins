@@ -33,6 +33,7 @@ pipeline {
             sh 'docker compose down --volumes --remove-orphans || true'
             junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
             archiveArtifacts artifacts: 'target/screenshots/*.png, target/traces/*.zip, target/surefire-reports/**', allowEmptyArchive: true
+            allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
         }
     }
 }
