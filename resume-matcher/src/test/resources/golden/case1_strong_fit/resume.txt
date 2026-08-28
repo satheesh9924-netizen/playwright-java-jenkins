@@ -1,0 +1,12 @@
+Jordan Ellis
+SDET / QA Automation Engineer
+
+Experience:
+- 5 years building and maintaining Java-based test automation frameworks
+- Built a Playwright + TestNG end-to-end test suite for a web application, integrated with Jenkins CI
+- Containerized the entire test suite with Docker and Docker Compose for reproducible CI runs
+- Set up Allure reporting for rich test result visibility across the team
+- Maintained a Maven multi-module build for test and tooling code
+- Investigated flaky vs. genuine test failures as part of on-call rotation
+
+Skills: Java, Playwright, Selenium, TestNG, JUnit, Jenkins, Docker, Maven, Allure, Git

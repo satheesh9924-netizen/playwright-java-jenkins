@@ -1,0 +1,11 @@
+Michael Sullivan
+SDET / QA Automation Engineer
+B.S. Computer Science, State University, 2003
+
+Experience:
+- 5 years building Java-based test automation frameworks
+- Built a Playwright + TestNG end-to-end suite integrated with Jenkins CI
+- Containerized the test suite with Docker for reproducible CI runs
+- He led the migration of the team's test suite from Selenium to Playwright
+
+Skills: Java, Playwright, Selenium, TestNG, Jenkins, Docker, Git

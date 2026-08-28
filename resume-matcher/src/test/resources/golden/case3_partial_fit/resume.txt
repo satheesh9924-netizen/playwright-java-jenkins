@@ -1,0 +1,13 @@
+Sam Rivera
+Quality Assurance Tester
+
+Experience:
+- 3 years as a manual QA tester for a mobile banking app
+- Wrote detailed test cases and executed regression test suites before each release
+- Logged and tracked bugs in Jira, worked closely with developers to verify fixes
+- Recently started learning Selenium WebDriver with Python in a personal project,
+  automated a handful of login and checkout flow tests
+- No professional CI/CD experience yet, but familiar with the concept from documentation
+
+Skills: Manual testing, test case design, Jira, exploratory testing, basic Selenium/Python,
+SQL for data verification

@@ -1,0 +1,7 @@
+{
+  "className": "com.example.tests.PlaywrightWebsiteTest",
+  "testName": "testDocsNavigation",
+  "errorMessage": "AssertionError: Expected heading matching pattern 'Installation' to be visible, but locator resolved to 0 elements. The page title and URL changed as expected, but no heading text matched -- the docs page appears to have been restructured.",
+  "stackTrace": "org.opentest4j.AssertionFailedError: expected heading to be visible\n  Locator: getByRole(HEADING, name=/Installation/i)\n  Resolved to 0 elements. Page HTML shows headings now read 'Get Started' instead of 'Installation'.\n\tat com.example.tests.PlaywrightWebsiteTest.testDocsNavigation(PlaywrightWebsiteTest.java:24)",
+  "expectedCategory": "REGRESSION"
+}

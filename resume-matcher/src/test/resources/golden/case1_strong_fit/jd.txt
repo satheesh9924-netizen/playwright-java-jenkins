@@ -1,0 +1,15 @@
+Senior SDET / Test Automation Engineer
+
+We are hiring a Senior SDET to own end-to-end test automation for our web platform.
+
+Required:
+- 4+ years building test automation frameworks in Java
+- Hands-on experience with Playwright or Selenium WebDriver
+- Experience with TestNG or JUnit
+- CI/CD pipeline experience (Jenkins preferred)
+- Comfortable containerizing test suites with Docker
+- Experience integrating test reporting tools (Allure or similar)
+
+Nice to have:
+- Exposure to AI/LLM-based testing or automated failure triage
+- Experience with Maven build tooling

@@ -1,0 +1,13 @@
+QA Automation Engineer
+
+We are looking for a QA Automation Engineer to help grow our test automation practice.
+
+Required:
+- 2+ years in software testing
+- Experience writing automated test scripts (any language/framework)
+- Familiarity with CI/CD concepts
+- Strong manual testing and test-case-design skills
+
+Nice to have:
+- Experience with Selenium, Playwright, or Cypress
+- Exposure to Jenkins or GitHub Actions

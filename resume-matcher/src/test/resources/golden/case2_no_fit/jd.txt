@@ -1,0 +1,10 @@
+Senior Backend Data Engineer
+
+We need a Senior Data Engineer to build and scale our data pipelines.
+
+Required:
+- 5+ years in backend data engineering
+- Deep experience with Apache Spark and distributed data processing
+- Strong SQL and data warehousing experience (Snowflake or BigQuery)
+- Experience with Airflow or similar orchestration tools
+- Python or Scala proficiency

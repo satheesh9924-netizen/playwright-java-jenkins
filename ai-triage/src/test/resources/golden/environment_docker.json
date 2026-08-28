@@ -1,0 +1,7 @@
+{
+  "className": "com.example.tests.PlaywrightWebsiteTest",
+  "testName": "testHomepageTitle",
+  "errorMessage": "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?",
+  "stackTrace": "java.io.IOException: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?\n\tat com.example.DockerComposeRunner.run(DockerComposeRunner.java:18)\n\tat com.example.tests.PlaywrightWebsiteTest.testHomepageTitle(PlaywrightWebsiteTest.java:12)",
+  "expectedCategory": "ENVIRONMENT"
+}

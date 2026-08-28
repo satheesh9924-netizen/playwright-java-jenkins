@@ -8,3 +8,34 @@ services:
     ipc: host
     environment:
       - CI=true
+
+  resume-matcher-tests:
+    build:
+      context: ./resume-matcher
+      dockerfile: Dockerfile
+    volumes:
+      - ./resume-matcher/target:/app/target
+    environment:
+      - ABACUS_API_KEY=${ABACUS_API_KEY}
+
+  ai-triage-tests:
+    build:
+      context: ./ai-triage
+      dockerfile: Dockerfile
+    volumes:
+      - ./ai-triage/target:/app/target
+    environment:
+      - ABACUS_API_KEY=${ABACUS_API_KEY}
+
+  ai-triage-run:
+    build:
+      context: ./ai-triage
+      dockerfile: Dockerfile
+    volumes:
+      - ./ai-triage/target:/app/target
+      - ./target/surefire-reports:/app/input-surefire-reports:ro
+    environment:
+      - ABACUS_API_KEY=${ABACUS_API_KEY}
+    command: ["mvn", "-q", "compile", "exec:java",
+              "-Dexec.mainClass=com.example.aitriage.FailureTriage",
+              "-Dexec.args=/app/input-surefire-reports /app/target/triage-report.md"]

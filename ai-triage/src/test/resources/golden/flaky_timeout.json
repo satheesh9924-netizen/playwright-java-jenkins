@@ -1,0 +1,7 @@
+{
+  "className": "com.example.tests.CheckoutTest",
+  "testName": "testSubmitOrder",
+  "errorMessage": "TimeoutError: Timeout 30000ms exceeded waiting for locator('#confirm-button') to be visible",
+  "stackTrace": "com.microsoft.playwright.TimeoutError: Timeout 30000ms exceeded.\nwaiting for locator('#confirm-button') to be visible\n  - element was visible in a previous run of the same suite\n  - network idle was reached 28s into the wait, page loaded normally\n\tat com.example.tests.CheckoutTest.testSubmitOrder(CheckoutTest.java:42)",
+  "expectedCategory": "FLAKY"
+}
