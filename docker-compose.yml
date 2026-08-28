@@ -1,0 +1,10 @@
+services:
+  playwright-java-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./target:/app/target
+    ipc: host
+    environment:
+      - CI=true
