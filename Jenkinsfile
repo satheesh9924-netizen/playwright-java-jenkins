@@ -5,6 +5,7 @@ pipeline {
     }
     triggers {
         githubPush()
+        pollSCM('H/2 * * * *')
     }
     stages {
         stage('Checkout') {
@@ -21,7 +22,7 @@ pipeline {
         }
         stage('Build & Run Tests (Docker)') {
             steps {
-                sh 'mkdir -p target'
+                sh 'rm -rf target && mkdir -p target'
                 sh 'docker compose build'
                 sh 'docker compose run --rm playwright-java-tests'
             }

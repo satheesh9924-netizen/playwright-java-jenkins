@@ -3,4 +3,4 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline -B
 COPY . .
-CMD ["mvn", "clean", "test", "-Dheadless=true"]
+CMD ["mvn", "test", "-Dheadless=true"]
